@@ -1,0 +1,35 @@
+#include<iostream>
+#define max 50
+using namespace std;
+bool bsearch(int l,int r,int a[],int key);
+int main()
+{
+    int n,a[max];
+    int i=0;
+    cin>>n;
+    while(i<n)
+    {
+        int x;
+        cin>>x;
+        a[i] = x;
+        i++;
+    }
+    int s;
+    cin>>s;
+    cout<<(bool)bsearch(0,n-1,a,s);
+    return 0;
+
+}
+bool bsearch(int l,int r,int a[],int key)
+{
+    int mid = l+(r-l)/2;
+    if(l>r)
+        return false;
+    if(key = a[mid])
+        return true;
+    else if(key > a[mid])
+        bsearch(mid+1,r,a,key);
+    else
+        bsearch(l,mid-1,a,key);
+
+}
